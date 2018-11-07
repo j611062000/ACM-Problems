@@ -78,5 +78,5 @@ def arrangement(Ferry):
             count -= 1
     tracing(path, Ferry)
 
-
-arrangement(ferries[0])
+if __name__ == "__main__":
+    arrangement(ferries[0])
