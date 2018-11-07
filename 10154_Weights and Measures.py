@@ -56,7 +56,7 @@ print(max_turtles)
 Input: n pairs of integer
   
 class turtle:
-  int weight, strength, net_weight
+  int weight, strength, net_strength
 
 /* If 2 turtles have the same strenght, then we sort them by their weight. */
 turtle turtles[n] := stores the turtles which have been sorted by their strength in ascending order
