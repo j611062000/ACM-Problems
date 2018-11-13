@@ -23,26 +23,32 @@ def non_min_position(pegs, min_position):
 
 
 def move_disk(pegs, start, target):
-	pegs[target].append(pegs[start].pop())
+    pegs[target].append(pegs[start].pop())
 
 
 def iteration_solution(pegs, min_position,num_of_pegs):
+    temp = [0,0,0,0,0,0]
     while True:
-        print(pegs)
+        print(pegs,temp)
         move_disk(pegs, min_position, next_peg(min_position,num_of_pegs))
+        temp[0] +=1
         min_position = next_peg(min_position,num_of_pegs)
-        print(pegs)
+        print(pegs,temp)
         try:
                 middle = non_min_position(pegs, min_position)
+                temp[pegs[middle][-1]-1]+=1
                 move_disk(pegs, middle, num_of_pegs - middle - min_position)
         except:
         	break
 
 if __name__ == '__main__':
     # peg is a stack
-    pegs = [[],[6, 5, 4, 3, 2, 1], []]
+    pegs = [[], [6,5,4,3,2,1], []]
+    min_value = float("inf")
     for position, peg in enumerate(pegs):
-    	if peg:
-    		min_position = position
+        if peg:
+            if  peg[-1]<min_value:
+                min_value = peg[-1]
+                min_position = position
 
     iteration_solution(pegs, min_position, len(pegs))
