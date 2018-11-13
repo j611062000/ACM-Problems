@@ -67,8 +67,7 @@ def arrangement(Ferry):
         count = start[0]
         print("{} cars can be loaded".format(count))
         while (count):
-            # print(start)
-            print(cars[count],end= ":")
+            print(cars[count], end=":")
             if path[start]:
                 print("PORT")
                 start = (start[0] - 1, start[1] - cars[start[0]])
